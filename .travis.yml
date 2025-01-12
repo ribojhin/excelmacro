@@ -1,0 +1,28 @@
+sudo: false
+
+dist: xenial
+
+language: php
+
+php:
+  - nightly
+  - 7.4
+  - 7.3
+
+matrix:
+  allow_failures:
+    - php: nightly
+
+before_script:
+  - PHP_VERSION=$(php -r 'echo phpversion();')
+  - echo $PHP_VERSION
+  - echo $TRAVIS_PHP_VERSION
+  - composer install --no-interaction
+  - mkdir -p ./build
+
+script:
+  - composer cover
+  - composer check-style
+
+after_script:
+  - composer coveralls
