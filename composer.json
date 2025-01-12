@@ -1,6 +1,6 @@
 {
     "name": "ribojhin/excelmacro",
-    "description": "Modifier un fichier excel macro",
+    "description": "Edit an Excel file that contains macros",
     "type": "library",
     "license": "MIT",
     "keywords": ["php", "excel", "xlsm"],
