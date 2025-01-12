@@ -37,7 +37,7 @@ class Archive
      */
     public function convertXlsmToZip(string $root, string $xlsmFilePath): void
     {
-        $destZipName = date('YmdHms').uniqid();
+        $destZipName = microtime(true) . '-' . uniqid();
         $destXlsmFileName = $destZipName . '.' . DataType::EXT_XLSM;
         copy($xlsmFilePath, $root . DIRECTORY_SEPARATOR . $destXlsmFileName);
         // rename file
@@ -121,18 +121,24 @@ class Archive
      */
     public function deleteFolder(string $source)
     {
-        $dir = opendir($source);
-        while(false !== ( $file = readdir($dir)) ) {
-            if (( $file != '.' ) && ( $file != '..' )) {
-                $full = $source . DIRECTORY_SEPARATOR . $file;
-                if ( is_dir($full) ) {
-                    $this->deleteFolder($full);
-                } else {
-                    unlink($full);
+        if ((basename($source) == '.') || (basename($source) == '..')) {
+            // ignore . and .. entries
+            return;
+        }
+        if (is_dir($source)) {
+            $filesDot = glob($source . DIRECTORY_SEPARATOR . '.*');
+            $filesNotDot = glob($source . DIRECTORY_SEPARATOR . '*');
+            $files = array_merge($filesDot, $filesNotDot);
+            if (count($files) > 0) {
+                foreach ($files as $file) {
+                    $this->deleteFolder($file);
                 }
             }
+            // delete empty folder
+            rmdir($source);
+        } else {
+            // delete file
+            unlink($source);
         }
-        closedir($dir);
-        rmdir($source);
     }
 }

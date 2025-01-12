@@ -3,7 +3,7 @@
     "description": "Modifier un fichier excel macro",
     "type": "library",
     "license": "MIT",
-    "keywords": ["php", "starter kit"],
+    "keywords": ["php", "excel", "xlsm"],
     "homepage": "https://github.com/ribojhin/excelmacro",
     "authors": [
       {
@@ -22,7 +22,7 @@
       }
     },
     "require": {
-      "php": "^7.3"
+      "php": ">=7.4.26"
     },
     "require-dev": {
       "phpunit/phpunit": "^8.4.3",
@@ -31,18 +31,5 @@
       "phpmd/phpmd" : "@stable",
       "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
       "slevomat/coding-standard": "^5.0"
-    },
-    "suggest": {
-      "phpbench/phpbench": "PHPBench is a benchmarking framework for PHP",
-      "infection/infection": "AST based PHP Mutation Testing Framework"
-    },
-    "scripts": {
-      "test": "./vendor/bin/phpunit",
-      "cover": "./vendor/bin/phpunit --coverage-clover ./build/phpunit/clover.xml",
-      "coveralls": "./vendor/bin/php-coveralls -v",
-      "check-style": "./vendor/bin/phpcs",
-      "fix-style": "./vendor/bin/phpcbf",
-      "bench": "phpbench run benchmarks/  --report=default",
-      "infection": "infection"
     }
 }
