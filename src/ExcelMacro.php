@@ -10,6 +10,8 @@ class ExcelMacro
 
     private Archive $archive;
 
+    private Sheet $sheet;
+
     public function __construct(string $filePath)
     {
         $ext = pathinfo($filePath, PATHINFO_EXTENSION);
@@ -22,18 +24,27 @@ class ExcelMacro
     }
 
     /**
+     * @return Sheet
+     */
+    public function getSheet()
+    {
+        return $this->sheet;
+    }
+
+    /**
      * @var int $index
      * 
      * @return Sheet
      */
-    public function getSheet(int $index)
+    public function setSheet(int $index)
     {
         $sheet = new Sheet();
         $sheet->setIndex($index);
         $sheet->setSharedFilePath($this->root . DIRECTORY_SEPARATOR . $this->archive->getZipname() . DIRECTORY_SEPARATOR . 'xl' . DIRECTORY_SEPARATOR . 'sharedStrings.xml');
         $sheet->setFilePath($this->root . DIRECTORY_SEPARATOR . $this->archive->getZipname() . DIRECTORY_SEPARATOR . 'xl' . DIRECTORY_SEPARATOR . 'worksheets' . DIRECTORY_SEPARATOR . 'sheet' . ($index + 1) . '.' . DataType::EXT_XML);
+        $this->sheet = $sheet;
 
-        return $sheet;
+        return $this;
     }
 
     /**
