@@ -1,5 +1,4 @@
 # Edit an Excel file that contains macros for PHP
-=======================
 This PHP library allows you to modify an Excel file that contains macros without disabling them.
 For most PHP projects, the library (https://github.com/PHPOffice/PhpSpreadsheet) allows you to manipulate Excel files.
 However, when you modify an Excel file with macro (xlsm), the macros no longer work.
