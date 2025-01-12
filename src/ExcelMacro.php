@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Ribojhin\ExcelmacroBundle;
+namespace Ribojhin\Excelmacro;
 
-use Ribojhin\ExcelmacroBundle\Sheet;
-use Ribojhin\ExcelmacroBundle\Archive;
+use Ribojhin\Excelmacro\Sheet;
+use Ribojhin\Excelmacro\Archive;
 
 class ExcelMacro
 {

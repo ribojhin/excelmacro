@@ -2,21 +2,19 @@
     "name": "ribojhin/excelmacro",
     "description": "Modifier un fichier excel macro",
     "homepage": "https://github.com/ribojhin/excelmacro",
-    "type": "symfony-bundle",
+    "type": "library",
     "license": "MIT",
     "require": {
-        "php": ">=7.4",
-        "symfony/framework-bundle": "^5.2",
-        "ribojhin/excelmacro": "*"
+        "php": ">=7.4"
     },
     "autoload": {
         "psr-4": {
-            "Ribojhin\\ExcelmacroBundle\\": "src/"
+            "Ribojhin\\Excelmacro\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Ribojhin\\ExcelmacroBundle\\Tests\\": "tests/"
+            "Ribojhin\\Excelmacro\\Tests\\": "tests/"
         }
     }
 }

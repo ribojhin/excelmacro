@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Ribojhin\ExcelmacroBundle;
+namespace Ribojhin\Excelmacro;
 
 class Archive
 {
