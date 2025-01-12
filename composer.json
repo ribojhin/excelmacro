@@ -1,0 +1,19 @@
+{
+    "name": "ribojhin/excelmacro",
+    "description": "Modifier un fichier excel macro",
+    "type": "symfony-bundle",
+    "require": {
+        "php": ">=7.4",
+        "symfony/framework-bundle": "^5.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ribojhin\\Excelmacro\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ribojhin\\Excelmacro\\Tests\\": "tests/"
+        }
+    }
+}
