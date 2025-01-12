@@ -21,7 +21,7 @@ composer installed.
 Once composer is installed, execute the following command in your project root to install this library:
 
 ```sh
-  composer require convertio/convertio-php
+  composer require ribojhin/excelmacro
 ```
 
 Finally, be sure to include the autoloader:
@@ -33,16 +33,15 @@ Finally, be sure to include the autoloader:
 
 Quickstart
 -------------------
-Following example will render remote web page into PNG image:
+The example below will load data into an excel file that contains macros:
 ```php
 <?php
-  require_once 'autoload.php';                      // Comment this line if you use Composer to install the package
-  use \Convertio\Convertio;
+  require_once 'autoload.php';                                      // Comment this line if you use Composer to install the package
+  use \Ribojhin\Excelmacro;
 
-  $API = new Convertio("_YOUR_API_KEY_");           // You can obtain API Key here: https://convertio.co/api/
+  $excelMacro = new Excelmacro("_FILE_PATH_SRC_XLSM_");              // Set excel file path you want to edit
+  $excelMacro->setSheet(0);                                         // Set sheet by index
+  $excelMacro->setCellValue($excelMacro->getSheet(), "_KEY_", '_VALUE_'); // Set cell
+  $excelMacro->save("_FILE_PATH_DEST_XLSM_");                        // Set destination file path
 
-  $API->startFromURL('http://google.com/', 'png')   // Convert (Render) HTML Page to PNG
-  ->wait()                                          // Wait for conversion finish
-  ->download('./google.png')                        // Download Result To Local File
-  ->delete();                                       // Delete Files from Convertio hosts
 ```
